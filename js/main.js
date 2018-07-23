@@ -4,8 +4,13 @@ let can2;
 let ctx1;
 let ctx2;
 
+let canWidth;
+let canHeight;
+
 let lastTime;
 let deltaTime;
+
+let bgPic = new Image();
 
 document.body.onload = game;
 function game() {
@@ -22,13 +27,17 @@ function init() {
 	can2 = document.getElementById('canvas2'); // background, are, fruits
 	ctx2 = can2.getContext("2d");
 
+	bgPic.src = './src/background.jpg';
+
+	canWidth = can1.width;
+	canHeight = can1.height;
 }
 
 function gameloop() {
-	requestAnimFrame(gameloop); //setInterval, setTimeout
+	window.requestAnimFrame(gameloop); //setInterval, setTimeout
 	let now = Date.now();
 	deltaTime = now - lastTime;
 	lastTime = now;
 
-	console.log(deltaTime);
+	drawBackground();
 }
