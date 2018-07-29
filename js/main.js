@@ -13,7 +13,7 @@ let deltaTime;
 let bgPic = new Image();
 
 let ane;
-let fruits;
+let fruit;
 
 let mom;
 
@@ -69,6 +69,7 @@ function gameloop() {
 
 	ctx1.clearRect(0, 0, canWidth, canHeight);
 	mom.draw();
+	momFruitsCollision();
 }
 
 function onMouseMove(e) {
