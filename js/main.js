@@ -17,6 +17,9 @@ let fruits;
 
 let mom;
 
+let mx;
+let my;
+
 
 document.body.onload = game;
 function game() {
@@ -35,6 +38,8 @@ function init() {
 
 	bgPic.src = './src/background.jpg';
 
+	can1.addEventListener('mousemove', onMouseMove, false)
+
 	canWidth = can1.width;
 	canHeight = can1.height;
 
@@ -46,6 +51,9 @@ function init() {
 
 	mom = new momObj();
 	mom.init();
+
+	mx = canWidth * 0.5;
+	my = canHeight * 0.5;
 }
 
 function gameloop() {
@@ -61,4 +69,11 @@ function gameloop() {
 
 	ctx1.clearRect(0, 0, canWidth, canHeight);
 	mom.draw();
+}
+
+function onMouseMove(e) {
+	if (e.offsetX || e.layerX) {
+		mx = e.offsetX == undefined ? e.layerX : e.offsetX;
+		my = e.offsetY == undefined ? e.layerY : e.offsetY;
+	}
 }
