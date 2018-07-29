@@ -12,6 +12,9 @@ let deltaTime;
 
 let bgPic = new Image();
 
+let ane;
+let fruits;
+
 document.body.onload = game;
 function game() {
 	init();
@@ -31,6 +34,12 @@ function init() {
 
 	canWidth = can1.width;
 	canHeight = can1.height;
+
+	ane = new aneObj();
+	ane.init();
+
+	fruit = new fruitObj();
+	fruit.init();
 }
 
 function gameloop() {
@@ -40,4 +49,6 @@ function gameloop() {
 	lastTime = now;
 
 	drawBackground();
+	ane.draw();
+	fruit.draw();
 }
