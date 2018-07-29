@@ -21,7 +21,7 @@ let baby;
 let mx;
 let my;
 
-
+let babyTail = [];
 document.body.onload = game;
 function game() {
 	init();
@@ -58,6 +58,11 @@ function init() {
 
 	mx = canWidth * 0.5;
 	my = canHeight * 0.5;
+
+	for(let i = 0; i < 8; i++) {
+		babyTail[i] = new Image();
+		babyTail[i].src = './src/babyTail' + i + '.png';
+	}
 }
 
 function gameloop() {

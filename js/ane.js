@@ -9,7 +9,6 @@ aneObj.prototype.init = function () {
 		this.x[i] = i * 16 + Math.random() * 20;
 		this.len[i] = 200 + Math.random() * 50;
 	}
-	console.log('a');
 }
 aneObj.prototype.draw = function () {
 
