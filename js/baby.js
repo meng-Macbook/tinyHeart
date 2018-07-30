@@ -2,14 +2,16 @@ let babyObj = function () {
 	this.x;
 	this.y;
 	this.angle;
-	this.babyBody = new Image();
 
 	this.babyTailTimer = 0;
 	this.babyTailCount = 0;
 
-	this.babyEyeTimer = 0;
-	this.babyEyeCount = 0;
-	this.babyEyeInterval = 1000;
+    this.babyEyeTimer = 0;
+    this.babyEyeCount = 0;
+    this.babyEyeInterval = 1000;
+
+    this.babyBodyTimer = 0;
+    this.babyBodyCount = 0;
 
 }
 
@@ -19,7 +21,6 @@ babyObj.prototype.init = function () {
 
 	this.angle = 0;
 
-	this.babyBody.src = "./src/babyFade0.png";
 }
 
 babyObj.prototype.draw = function () {
@@ -60,6 +61,17 @@ babyObj.prototype.draw = function () {
 
 	}
 
+	//baby body
+    this.babyBodyTimer += deltaTime;
+    if (this.babyBodyTimer > 300) {
+        this.babyBodyCount = (this.babyBodyCount + 1);
+        this.babyBodyTimer %= 300;
+        if (this.babyBodyCount > 19){
+        	this.babyBodyCount = 19;
+        	//GAME OVER;
+		}
+    }
+
 	// ctx1
 	ctx1.save();
 	// translate
@@ -68,7 +80,8 @@ babyObj.prototype.draw = function () {
 
 	let babyTailCount = this.babyTailCount;
 	ctx1.drawImage(babyTail[babyTailCount], -babyTail[babyTailCount].width * 0.5 + 23, -babyTail[babyTailCount].height * 0.5);
-	ctx1.drawImage(this.babyBody, -this.babyBody.width * 0.5, -this.babyBody.height * 0.5);
+	let babyBodyCount = this.babyBodyCount;
+    ctx1.drawImage(babyBody[babyBodyCount], -babyBody[babyBodyCount].width * 0.5, -babyBody[babyBodyCount].height * 0.5);
 	let babyEyeCount = this.babyEyeCount;
 	// console.log(babyEyeCount);
 	ctx1.drawImage(babyEye[babyEyeCount], -babyEye[babyEyeCount].width * 0.5, -babyEye[babyEyeCount].height * 0.5);

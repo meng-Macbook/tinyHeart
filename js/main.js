@@ -22,6 +22,7 @@ let mx;
 let my;
 
 let babyTail = [];
+let babyBody = [];
 let babyEye = [];
 
 document.body.onload = game;
@@ -64,6 +65,10 @@ function init() {
     for(let i = 0; i < 8; i++) {
         babyTail[i] = new Image();
         babyTail[i].src = './src/babyTail' + i + '.png';
+    }
+    for(let i = 0; i < 20; i++) {
+        babyBody[i] = new Image();
+        babyBody[i].src = './src/babyFade' + i + '.png';
     }
     for(let i = 0; i < 2; i++) {
         babyEye[i] = new Image();
