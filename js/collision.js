@@ -28,8 +28,10 @@ function momBabyCollision() {
 	if (l < 900) {
 		// baby recover
 		baby.babyBodyCount = 0;
-	    // data => 0
-        data.reset();
         mom.momBodyCount = 0;
+        // score update
+        data.addScore();
 	}
 }
+
+
