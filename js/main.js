@@ -32,6 +32,8 @@ let momBodyBlue = [];
 
 let data;
 
+let wave;
+
 document.body.onload = game;
 function game() {
 	init();
@@ -104,6 +106,9 @@ function init() {
 
     ctx1.font = "30px Verdana";
     ctx1.textAlign = "center";
+
+    wave = new waveObj();
+    wave.init();
 }
 
 function gameloop() {
@@ -126,6 +131,7 @@ function gameloop() {
 	baby.draw();
 
 	data.draw();
+	wave.draw();
 }
 
 function onMouseMove(e) {

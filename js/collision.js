@@ -19,6 +19,7 @@ function momFruitsCollision() {
                         // blue
                         data.double = 2;
                     }
+                    wave.born();
                 }
             }
         }
