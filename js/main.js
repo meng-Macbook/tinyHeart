@@ -25,6 +25,10 @@ let babyTail = [];
 let babyBody = [];
 let babyEye = [];
 
+let momTail = [];
+// let momBody = [];
+// let momEye = [];
+
 document.body.onload = game;
 function game() {
 	init();
@@ -62,6 +66,7 @@ function init() {
 	mx = canWidth * 0.5;
 	my = canHeight * 0.5;
 
+    //baby
     for(let i = 0; i < 8; i++) {
         babyTail[i] = new Image();
         babyTail[i].src = './src/babyTail' + i + '.png';
@@ -74,6 +79,21 @@ function init() {
         babyEye[i] = new Image();
         babyEye[i].src = './src/babyEye' + i + '.png';
     }
+
+    //mam
+    for(let i = 0; i < 8; i++) {
+        momTail[i] = new Image();
+        momTail[i].src = './src/bigTail' + i + '.png';
+    }
+
+    // for(let i = 0; i < 20; i++) {
+    //     momBody[i] = new Image();
+    //     momBody[i].src = './src/momFade' + i + '.png';
+    // }
+    // for(let i = 0; i < 2; i++) {
+    //     momEye[i] = new Image();
+    //     momEye[i].src = './src/momEye' + i + '.png';
+    // }
 }
 
 function gameloop() {
