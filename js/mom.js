@@ -56,8 +56,6 @@ momObj.prototype.draw  = function () {
 	}
 
 
-    console.log(this.momEyeTimer, this.momEyeInterval);
-
 	ctx1.save();
 	ctx1.translate(this.x, this.y);
 	ctx1.rotate(this.angle);

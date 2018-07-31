@@ -1,0 +1,18 @@
+let dataObj = function () {
+    this.fruitNum = 0;
+    this.double = 1;
+}
+
+dataObj.prototype.reset = function () {
+    this.fruitNum = 0;
+    this.double = 1;
+}
+
+dataObj.prototype.draw = function () {
+    let w = can1.width;
+    let h = can1.height;
+
+    ctx1.fillStyle = 'white';
+    ctx1.fillText("num " + this.fruitNum, w * 0.5, h - 50);
+    ctx1.fillText("double " + this.double, w * 0.5, h - 80);
+}

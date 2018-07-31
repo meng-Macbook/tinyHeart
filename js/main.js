@@ -29,6 +29,8 @@ let momTail = [];
 let momEye = [];
 // let momEye = [];
 
+let data;
+
 document.body.onload = game;
 function game() {
 	init();
@@ -89,10 +91,8 @@ function init() {
     	momEye[i] = new Image();
     	momEye[i].src = './src/bigEye' + i + '.png';
 	}
-    // for(let i = 0; i < 2; i++) {
-    //     momEye[i] = new Image();
-    //     momEye[i].src = './src/momEye' + i + '.png';
-    // }
+
+	data = new dataObj();
 }
 
 function gameloop() {
@@ -113,6 +113,8 @@ function gameloop() {
     momBabyCollision();
 
 	baby.draw();
+
+	data.draw();
 }
 
 function onMouseMove(e) {

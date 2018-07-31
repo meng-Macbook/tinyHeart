@@ -8,6 +8,11 @@ function momFruitsCollision() {
             let l = calLength2(fruit.x[i], fruit.y[i], mom.x, mom.y);
             if( l < 900) {
                 fruit.dead(i);
+                data.fruitNum++;
+                if (fruit.fruitType[i] == "blue") {
+                    // blue
+                    data.double = 2;
+                }
             }
         }
     }
@@ -19,5 +24,7 @@ function momBabyCollision() {
 	if (l < 900) {
 		// baby recover
 		baby.babyBodyCount = 0;
+	    // data => 0
+        data.reset();
 	}
 }
