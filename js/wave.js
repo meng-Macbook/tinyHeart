@@ -14,24 +14,27 @@ waveObj.prototype.init = function () {
 }
 
 waveObj.prototype.draw = function () {
+    ctx1.save();
+    ctx1.lineWidth = 2;
+    ctx1.shadowBlur = 10;
+    ctx1.shadowColor = "white";
     for(let i = 0; i < this.num; i++) {
         if (this.alive[i]) {
-
-            this.r[i] += deltaTime * 0.1;
-            if (this.r[i] > 100) {
+            this.r[i] += deltaTime * 0.04;
+            if (this.r[i] > 50) {
                 this.alive[i] = false;
+                break;
             }
-            let alpha = 1 - this.r[i] / 100;
+            let alpha = 1 - this.r[i] / 50;
             //api
             ctx1.beginPath();
             ctx1.arc(this.x[i], this.y[i], this.r[i], 0, Math.PI * 2);
             ctx1.closePath();
             ctx1.strokeStyle = "rgba(255,255,255," + alpha +")";
             ctx1.stroke();
-            // draw
-            console.log('draw');
         }
     }
+    ctx1.restore();
 }
 
 
@@ -40,7 +43,7 @@ waveObj.prototype.born = function (x, y) {
         if (!this.alive[i]) {
             // born
             this.alive[i] = true;
-            this.r[i] = 20;
+            this.r[i] = 10;
             this.x[i] = x;
             this.y[i] = y;
             return;
